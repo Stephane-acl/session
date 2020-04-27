@@ -1,3 +1,13 @@
+<?php session_start();
+
+$name = 'Wilder';
+
+if (isset($_SESSION['loginname'])) {
+    $name = $_SESSION['loginname'];
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,10 +54,25 @@
                         </a>
                     </li>
                 </ul>
+                <?php if (isset($_SESSION['loginname'])) {
+
+                    echo "<a href=\"logout.php\" class=\"btn btn-secondary navbar-btn\">
+                            <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>
+                            Log out
+                        </a>";
+
+                } else {
+
+                    echo "<a href=\"/login.php\" class=\"btn btn-secondary navbar-btn\">
+                            <span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>
+                            Log in
+                        </a>";
+                }
+                ?>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
-        <strong>Hello Wilder !</strong>
+        <strong> Hello <?= $name ?> ! </strong>
     </div>
 </header>

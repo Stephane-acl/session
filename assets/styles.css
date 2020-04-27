@@ -68,4 +68,7 @@ section.cookies{
   .navbar-brand img {
     height: 60px;
   }
+  .error {
+      color: red;
+  }
 }
